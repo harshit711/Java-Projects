@@ -73,7 +73,7 @@ public class HotelBooking
         f.setVisible(true);
         p.setVisible(true);
         p.setLayout(null);
-        
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p1.setVisible(true);
         p1.setLayout(null);
 
@@ -169,17 +169,33 @@ public class HotelBooking
                public void actionPerformed(ActionEvent ae)
                {
                    try
-                   {
-                           FileReader r = new FileReader("C:\\Users\\user\\Desktop\\JAVA\\hotel booking\\src\\hotel\\booking\\HotelBooking.java");
-                           BufferedReader br = new BufferedReader(r);
-                           FileWriter w=new FileWriter("C:\\Users\\user\\Desktop\\JAVA\\abc.txt");
+                {
+                           FileWriter w=new FileWriter("C:\\Users\\Student\\Desktop\\abc.txt",false);
                            BufferedWriter bw=new BufferedWriter(w);
-                           String line;            
-                           while ((line = br.readLine()) != null) 
-                    {
-                            bw.write(line);
-                    }
-                  }
+                            StringBuffer sb = new StringBuffer();
+                            sb.append("Destination: "+cb1.getSelectedItem());
+                            sb.append("\r\n");
+                            sb.append("Check in time: "+t1.getText());
+                            sb.append("\r\n");
+                            sb.append("Check out time: "+t2.getText());
+                            sb.append("\r\n");
+                            sb.append("Number of persons: "+t3.getText());
+                            sb.append("\r\n");
+                            sb.append("Adult: "+t4.getText());
+                            sb.append("\r\n");
+                            sb.append("Children: "+t5.getText());
+                            sb.append("\r\n");
+                            sb.append("Room Type: "+cb2.getSelectedItem());
+                            sb.append("\r\n");
+                            sb.append("Number of rooms needed: "+t6.getText());
+                            sb.append("\r\n");
+                            sb.append("Extra bed needed: "+b1.getText());
+                            sb.append("\r\n");
+                            bw.write(sb.toString());
+                            System.out.println(sb.toString());
+                            bw.flush();
+                            bw.close();
+                }
                    catch(IOException e)
                            {
                                System.out.println(e);

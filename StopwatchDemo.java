@@ -48,6 +48,12 @@ public class StopwatchDemo extends Thread implements ActionListener{
              System.out.println(ie);
          }
      }
+     public void reset()
+     {
+         b1.setText("START");
+         fd.setText("0");
+         sd.stop();
+     }
     
     @Override
     public void actionPerformed(ActionEvent ae){
@@ -62,6 +68,9 @@ public class StopwatchDemo extends Thread implements ActionListener{
                 sd.stop();
                 b1.setText("START");
                 break;
+            case "RESET":
+            sd.reset();
+            break;
         }
     }
         public static void main(String[] args) {
